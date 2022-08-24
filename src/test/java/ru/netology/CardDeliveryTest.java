@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 public class CardDeliveryTest {
 
     @BeforeEach
-    static void setUp() {
+    void setUp() {
         open("http://localhost:9999/");
     }
 
@@ -23,7 +23,7 @@ public class CardDeliveryTest {
     void shouldSendForm() {
         $("[data-test-id='city'] input").setValue("Казань");
         String deliveryDate = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.DELETE);
+        //$("[data-test-id=date] input").doubleClick().sendKeys(Keys.DELETE);
         $("[data-test-id=date] input").setValue(deliveryDate);
         $("[data-test-id='name'] input").setValue("Иванов Иван");
         $("[data-test-id='phone'] input").setValue("+79999999999");
